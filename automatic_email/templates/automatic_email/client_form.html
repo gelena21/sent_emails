@@ -1,0 +1,11 @@
+{% extends 'automatic_email/base.html' %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Редактирование{% else %}Добавление{% endif %} клиента</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+  </form>
+  <a href="/client/list/">Назад к списку клиентов</a>
+{% endblock %}

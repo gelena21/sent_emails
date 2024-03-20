@@ -1,0 +1,10 @@
+{% extends 'automatic_email/base.html' %}
+
+{% block content %}
+  <h1>Вы уверены, что хотите удалить рассылку {{ mailout.subject }}?</h1>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+  </form>
+  <a href="{% url 'automatic_email:mailout_list' %}">Назад к списку рассылок</a>
+{% endblock %}

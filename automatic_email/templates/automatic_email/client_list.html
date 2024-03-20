@@ -1,0 +1,29 @@
+{% extends 'automatic_email/base.html' %}
+
+{% block content %}
+  <h1>Список клиентов</h1>
+  <a href="{% url 'automatic_email:client_create' %}">Добавить клиента</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Имя</th>
+        <th>Email</th>
+        <th>Комментарий</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for client in clients %}
+        <tr>
+          <td>{{ client.name }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.comment }}</td>
+          <td>
+            <a href="{% url 'automatic_email:client_update' client.id %}">Редактировать</a>
+            <a href="{% url 'automatic_email:client_delete' client.id %}">Удалить</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

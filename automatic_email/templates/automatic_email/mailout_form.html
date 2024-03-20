@@ -1,0 +1,12 @@
+{% extends 'automatic_email/base.html' %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Редактирование{% else %}Добавление{% endif %} рассылки</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ form.message.as_hidden }}
+    <button type="submit">Сохранить</button>
+  </form>
+  <a href="{% url 'automatic_email:mailout_list' %}">Назад к списку рассылок</a>
+{% endblock %}

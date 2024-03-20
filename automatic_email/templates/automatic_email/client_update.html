@@ -1,0 +1,11 @@
+{% extends 'automatic_email/base.html' %}
+
+{% block content %}
+  <h1>Редактирование клиента</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+  </form>
+  <a href="{% url 'automatic_email:client_list' %}">Назад к списку клиентов</a>
+{% endblock %}

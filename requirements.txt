@@ -1,0 +1,7 @@
+Django~=5.0.3
+asgiref==3.7.2
+sqlparse==0.4.4
+psycopg2-binary
+pillow
+ipython
+pytils~=0.4.1
